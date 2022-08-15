@@ -1,0 +1,7 @@
+
+<h2>Dashboard Component</h2>
+<div class="Users-menu">
+  <a *ngFor="let myUser of User" routerLink="/detail/{{myUser.id}}">
+    {{myUser.name}}
+  </a>
+</div>
