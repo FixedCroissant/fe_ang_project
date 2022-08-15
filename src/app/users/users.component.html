@@ -1,0 +1,29 @@
+<h2>My User List:</h2>
+<ul class="users">
+    <li *ngFor="let user of users">
+      <a routerLink="/detail/{{user.id}}">
+        <span class="badge">{{user.id}}</span> {{user.title}} {{user.firstName}} {{user.lastName}}
+      </a>
+  
+      <button type="button" class="delete" title="delete user"
+      (click)="delete(user)">x</button>
+    </li>
+
+    <label for="new-user">User First Name: </label>
+    <input id="new-user" #userFirstName />
+
+    <h4>External User List:</h4>
+    <ul>
+    <li *ngFor="let user of myExternalUsers">
+      {{user.name.first}} {{user.name.last}}
+    </li>
+    </ul>
+
+    
+    
+    <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(userFirstName.value); userFirstName.value=''">
+    Add User
+  </button>
+  </ul>
+  
