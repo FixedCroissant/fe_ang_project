@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClarityModule } from '@clr/angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -21,7 +23,15 @@ import { LoginComponent } from './login/login.component';
     UserDetailComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ClarityModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
