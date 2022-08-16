@@ -1,5 +1,22 @@
-<h2>My User List:</h2>
-<ul class="users">
+  <!--Validation-->
+  <!-- <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+
+    <ul>
+        <!--Required Title-->
+        <!-- <li *ngIf="title.errors?.['required']">
+          Title is required.
+        </li>
+        <!--Required First Name-->
+        <!-- <li *ngIf="firstName.errors?.['required']">
+          First Name is required.
+        </li> -->
+    <!-- </ul>
+  </div>  -->
+
+  <div class="clr-row">
+    <div class="clr-row-sm-12 clr-col-md-9 clr-offset-md-3">
+      <h2>My User List:</h2>
+<!-- <ul class="users">
     <li *ngFor="let user of users">
       <a routerLink="/detail/{{user.id}}">
         <span class="badge">{{user.id}}</span> {{user.title}} {{user.firstName}} {{user.lastName}}
@@ -9,21 +26,101 @@
       (click)="delete(user)">x</button>
     </li>
 
-    <label for="new-user">User First Name: </label>
-    <input id="new-user" #userFirstName />
-
+    
     <h4>External User List:</h4>
     <ul>
     <li *ngFor="let user of myExternalUsers">
       {{user.name.first}} {{user.name.last}}
     </li>
     </ul>
+</ul> -->
 
-    
-    
-    <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(userFirstName.value); userFirstName.value=''">
-    Add User
-  </button>
-  </ul>
+<h4>Current Users:</h4>
+<table class="table">
+  <thead>
+      <tr>
+          <th class="left">ID</th>
+          <th>Title</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of users">
+        <td class="left">{{user.id}}</td>
+        <td>{{user.title}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>
+          <button type="button" class="delete" title="delete user"
+          (click)="delete(user)">x</button>
+        </td>
+      </tr>
+      <tr *ngIf="users.length <= 0">
+        <td colspan="5">
+          <span class="spinner spinner-md">
+          </span>
+        </td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+  <h4>New User Form Below:</h4>
+  <!--New FORM-->
+  <div class="clr-row">
+    <div class="clr-col-sm-12 clr-col-md-9 clr-offset-md-3">
+      <form clrForm #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
+        <clr-select-container>
+          <label>Title</label>
+          <select clrSelect name="title" [(ngModel)]="myUser.title" required>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Ms">Ms</option>
+          </select>
+          <clr-control-error>Provide a title</clr-control-error>
+        </clr-select-container>
+
+
+        <clr-input-container>
+          <label>First Name</label>
+          <input clrInput type="text" [(ngModel)]="myUser.firstName" name="firstName"  required />
+          <clr-control-error>Provide a first name</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+          <label>Last Name</label>
+          <input clrInput type="text" [(ngModel)]="myUser.lastName" name="lastName" required />
+          <clr-control-error>Provide a last name</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+          <label>EMail Address</label>
+          <input clrInput type="text" [(ngModel)]="myUser.email" name="email" required />
+          <clr-control-error>Provide a email address</clr-control-error>
+        </clr-input-container>
+        <clr-select-container>
+          <label>Role</label>
+          <select clrSelect name="role" [(ngModel)]="myUser.role" required>
+            <option value="Admin">Admin</option>
+            <option value="Guest">Guest</option>
+          </select>
+          <clr-control-error>Provide a title</clr-control-error>
+        </clr-select-container>
+        <clr-password-container>
+          <label>Password</label>
+          <input clrPassword type="text" [(ngModel)]="myUser.password" name="password" required />
+          <clr-control-error>Provide a password.</clr-control-error>
+        </clr-password-container>
+        <clr-password-container>
+          <label>Password Confirmation</label>
+          <input clrPassword type="text" [(ngModel)]="myUser.ConfirmPassword" name="ConfirmPassword" required  />
+          <clr-control-error>We need a password match!</clr-control-error>
+        </clr-password-container>
+        <button class="btn btn-primary" type="submit" [disabled]="!newUserForm.valid" >Create User</button>
+      </form>
+      <!--EndFORM-->
+    </div>
+  </div>
+ 
+
   
