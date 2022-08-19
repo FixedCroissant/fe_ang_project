@@ -1,1 +1,30 @@
-<p>Login page here.</p>
+<div class="login-wrapper">
+    <form class="login">
+        <section class="title">
+            <h3 class="welcome">Welcome to User Application</h3>
+        </section>
+        <div class="login-group" style="display:none;">
+            <clr-input-container>
+                <label class="clr-sr-only">Username</label>
+                <input type="text" name="username" clrInput placeholder="Username"/>
+            </clr-input-container>
+            <clr-password-container>
+                <label class="clr-sr-only">Password</label>
+                <input type="password" name="password" clrPassword placeholder="Password"/>
+            </clr-password-container>
+            <clr-checkbox-wrapper>
+                <label>Remember me</label>
+                <input type="checkbox" name="rememberMe" clrCheckbox/>
+            </clr-checkbox-wrapper>
+            
+            <button type="submit" class="btn btn-primary">NEXT</button>
+        </div>
+        <div class="login-group">
+            
+             <button type="button" class="btn btn-primary"> Continue with Google</button>
+             <button type="button" class="btn btn-primary"> Continue with Twitter</button>
+            
+
+        </div>
+    </form>
+</div>
