@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url" : "https://www.github.com"
+    "url": "https://www.github.com"
   },
   "license": "MIT",
   "scripts": {
@@ -11,7 +11,8 @@
     "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "node post-install.js"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +28,7 @@
     "@clr/angular": "^13.7.0",
     "@clr/icons": "^13.0.2",
     "@clr/ui": "^13.7.0",
+    "express": "^4.18.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
