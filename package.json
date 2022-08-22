@@ -12,7 +12,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "node post-install.js"
+    "heroku-postbuild": "node post-install.js"
   },
   "private": true,
   "dependencies": {
